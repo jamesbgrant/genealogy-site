@@ -7,7 +7,7 @@
 
 - **User:** Andrew Byrne (`brynestein` on GitHub, `andrewjjbyrne1973@gmail.com`)
 - **Project:** `genealogy-site` — a family-history site for **James Grant** (Byrne + Grant families). Astro 5, built on the **JSON-data convention** so the **Site Manager AI Editor** can read and write content directly.
-- **Production:** Cloudflare Pages — `https://byrne-genealogy.pages.dev` (per `astro.config.mjs` `site:`).
+- **Production:** Cloudflare Pages — `https://genealogy-site.pages.dev` (per `astro.config.mjs` `site:`).
 
 ## 1. Protocols (do not skip)
 
@@ -34,7 +34,7 @@
 - **Framework:** Astro 5 + `@astrojs/sitemap`.
 - **Styling:** no CSS framework — system fonts, a single `--brand` accent in `src/layouts/Layout.astro` so the whole site can be repainted in one AI-Editor turn.
 - **Content model:** `src/data/*.json` (about, contact, home, nav, people, stories, gallery, seo, …) read by the pages and read/written by the Site Manager AI Editor.
-- **Deploy:** Cloudflare Pages (`byrne-genealogy.pages.dev`).
+- **Deploy:** Cloudflare Pages (`genealogy-site.pages.dev`).
 - **Related:** the `client-site-patterns` skill (Astro + Cloudflare + Site-Manager conventions).
 
 ## 5. What lives where
