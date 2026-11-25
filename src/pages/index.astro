@@ -21,6 +21,7 @@ const FOOTER_SLOTS = 6;
 const gallerySlots = Array.from({ length: GALLERY_SLOTS }, (_, i) => gallery[i] ?? null);
 const footerSlots = Array.from({ length: FOOTER_SLOTS }, (_, i) => gallery[i] ?? null);
 
+// tiles.json can write {people} in a count to show the live number of people.
 // Sorted by surname then first name so people are findable by browsing too.
 const peopleCards = people
   .map((p) => {
@@ -62,7 +63,7 @@ const peopleCards = people
           {tiles.map(t => (
             <a href={t.href || '#'} class={`tile tint-${t.tint}`}>
               <span class="tile-label">{t.label}</span>
-              <span class="tile-count">{t.count}</span>
+              <span class="tile-count">{t.count.replace('{people}', String(people.length))}</span>
             </a>
           ))}
         </div>
