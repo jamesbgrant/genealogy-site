@@ -72,7 +72,13 @@
     "marriage_date": "31/1/1864",
     "outlier": "No",
     "photo": "",
-    "slug": "patrick-patritius-byrne-31"
+    "slug": "patrick-patritius-byrne-31",
+    "sources": [
+      {
+        "label": "1864 marriage",
+        "url": "https://1drv.ms/b/c/53d864922557e561/IQBh5VclkmTYIIBTsJIAAAAAAduZGZOLVHBYPYYbnoUyhMQ?e=14Xsry"
+      }
+    ]
   },
   {
     "id": 12,
