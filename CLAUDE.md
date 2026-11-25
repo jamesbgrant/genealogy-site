@@ -11,7 +11,7 @@
 
 ## 1. Protocols (do not skip)
 
-1. **Andrew approves all commits and pushes.** Draft, check, then **stop and ask**.
+1. **James approves all commits and pushes.** Draft, check, then **stop and ask**.
 2. **Code review before presenting non-trivial changes** — run [.claude/agents/code-reviewer.md](.claude/agents/code-reviewer.md) (or apply its checklist) and surface concerns *with* the diff, in plain English.
 3. **Never** `--no-verify`, `--force`, `--amend`, `git reset --hard`, `git clean -fd`.
 4. **Never expose secrets** or paste `.env*` contents.
@@ -27,7 +27,7 @@
 
 1. Write a dated `docs/session-notes/YYYY-MM-DD-<slug>.md`.
 2. Add/update `docs/patterns/` for any non-obvious data-shape or AI-Editor learning.
-3. Tell Andrew the summary; **do not commit**.
+3. Tell James the summary; **do not commit**.
 
 ## 4. Stack snapshot
 
@@ -48,7 +48,7 @@
 
 ## 6. Permissions
 
-[.claude/settings.json](.claude/settings.json) (if present) pre-approves safe commands; destructive ops stay denied. Widening is an explicit Andrew decision.
+[.claude/settings.json](.claude/settings.json) (if present) pre-approves safe commands; destructive ops stay denied. Widening is an explicit James decision.
 
 ## 7. Memory layer (cross-project)
 
@@ -59,7 +59,7 @@ Cross-project auto-memory at `~/.claude/projects/<repo-slug>/memory/MEMORY.md` (
 - **Don't hardcode content in `.astro`** — it must stay in `src/data/*.json` for the AI Editor. Pages render from JSON; they don't carry copy.
 - Don't add a CSS framework or extra accent colours — the single `--brand` token is deliberate (one-turn repaint).
 - Genealogy-specific sections (family tree, surnames, places, sources) are intentionally minimal/absent at scaffold; James iterates via the AI Editor — don't pre-build speculative structure.
-- **Repo hygiene:** there's a stray empty directory literally named `C:Usersandregenealogy-sitesrcpagespeople` at the repo root (a botched-path artifact). It's junk — remove it (flag to Andrew first).
+- **Repo hygiene:** there's a stray empty directory literally named `C:Usersandregenealogy-sitesrcpagespeople` at the repo root (a botched-path artifact). It's junk — remove it (flag to James first).
 
 ## 9. House style
 
