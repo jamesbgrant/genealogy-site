@@ -9,7 +9,10 @@
   "sections": {
     "recent": {
       "eyebrow": "Recently added",
-      "heading": "New to the archive this month"
+      "heading": "New to the archive this month",
+      "searchLabel": "Find a person",
+      "searchPlaceholder": "Type a name, e.g. Patrick Byrne",
+      "noResults": "No one matches that name."
     },
     "features": {
       "eyebrow": "Explore",

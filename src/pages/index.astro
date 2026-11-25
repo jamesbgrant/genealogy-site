@@ -11,6 +11,7 @@ import people from '../data/people.json';
 import features from '../data/features.json';
 import stories from '../data/stories.json';
 import gallery from '../data/gallery.json';
+import { displayName, maidenName, lifeYears, searchText } from '../lib/people.js';
 
 // Gallery strip is a fixed 6-slot grid in the mockup. Fill real photos from
 // gallery.json into the first slots; remaining slots stay as decorative
@@ -19,6 +20,22 @@ const GALLERY_SLOTS = 6;
 const FOOTER_SLOTS = 6;
 const gallerySlots = Array.from({ length: GALLERY_SLOTS }, (_, i) => gallery[i] ?? null);
 const footerSlots = Array.from({ length: FOOTER_SLOTS }, (_, i) => gallery[i] ?? null);
+
+// Sorted by surname then first name so people are findable by browsing too.
+const peopleCards = people
+  .map((p) => {
+    const surname = p.married_name || p.last_name || '';
+    const maiden = maidenName(p);
+    return {
+      slug: p.slug,
+      name: displayName(p) || 'Name unknown',
+      years: lifeYears(p),
+      maiden,
+      sortKey: searchText(surname, p.first_name),
+      search: searchText(p.first_name, surname, maiden),
+    };
+  })
+  .sort((a, b) => a.sortKey.localeCompare(b.sortKey));
 ---
 
 <Layout title={seo.index.title} description={seo.index.description}>
@@ -59,21 +76,51 @@ const footerSlots = Array.from({ length: FOOTER_SLOTS }, (_, i) => gallery[i] ??
           <p class="eyebrow">{home.sections.recent.eyebrow}</p>
           <h2>{home.sections.recent.heading}</h2>
         </div>
-        <details class="accordion">
+        <div class="people-search">
+          <label for="people-search-input">{home.sections.recent.searchLabel}</label>
+          <input
+            id="people-search-input"
+            type="search"
+            autocomplete="off"
+            placeholder={home.sections.recent.searchPlaceholder}
+          />
+        </div>
+        <details class="accordion" id="people-list">
           <summary class="accordion-summary">Show people ({people.length})</summary>
+          <p class="people-empty" hidden>{home.sections.recent.noResults}</p>
           <div class="member-row">
-            {people.map(p => (
-              <a href={p.slug ? `/people/${p.slug}` : '#'} class="member-card-link">
+            {peopleCards.map(p => (
+              <a href={p.slug ? `/people/${p.slug}` : '#'} class="member-card-link" data-search={p.search}>
                 <article class="member-card">
                   <div class="avatar"></div>
                   <h3>{p.name}</h3>
-                  <p class="dates">{p.dates}</p>
-                  <p class="note">{p.note}</p>
+                  <p class="dates">{p.years}</p>
+                  {p.maiden && <p class="note">n&eacute;e {p.maiden}</p>}
                 </article>
               </a>
             ))}
           </div>
         </details>
+        <script>
+          // Filters cards by name; every typed word must match, accents ignored.
+          const input = document.getElementById('people-search-input') as HTMLInputElement;
+          const list = document.getElementById('people-list') as HTMLDetailsElement;
+          const empty = list.querySelector('.people-empty') as HTMLElement;
+          const cards = Array.from(list.querySelectorAll<HTMLElement>('.member-card-link'));
+          const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+          input.addEventListener('input', () => {
+            const words = fold(input.value).split(/\s+/).filter(Boolean);
+            let shown = 0;
+            for (const card of cards) {
+              const text = card.dataset.search ?? '';
+              const match = words.every((w) => text.includes(w));
+              card.hidden = !match;
+              if (match) shown++;
+            }
+            empty.hidden = shown > 0;
+            if (words.length) list.open = true;
+          });
+        </script>
       </div>
     </section>
 

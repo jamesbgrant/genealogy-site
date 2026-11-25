@@ -306,6 +306,31 @@ img {
 .dates { color: var(--muted-gold); font-size: 0.9rem; margin-bottom: 12px; letter-spacing: 0.05em; }
 .note { color: var(--text-muted); font-size: 0.95rem; }
 
+/* PEOPLE SEARCH */
+.people-search {
+  max-width: 420px;
+  margin: 0 auto 16px;
+  text-align: center;
+}
+.people-search label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.people-search input {
+  width: 100%;
+  font: inherit;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--white);
+}
+.people-search input:focus { outline: 2px solid var(--brand); outline-offset: 1px; }
+.people-empty { text-align: center; color: var(--text-muted); }
+.member-card-link[hidden] { display: none; }
+
 /* FEATURES */
 .feature-grid {
   display: grid;
