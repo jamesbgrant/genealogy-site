@@ -67,6 +67,11 @@ const facts = [
 ];
 
 const hasDetails = person.cause_of_death || deathInformantRaw || person.notes;
+
+// Optional field; tolerate missing or half-filled entries so an AI-Editor slip doesn't break the build.
+const sources = (Array.isArray(person.sources) ? person.sources : []).filter(
+  (s) => s && (String(s.label ?? '').trim() || String(s.url ?? '').trim())
+);
 ---
 
 <Layout
@@ -196,6 +201,33 @@ const hasDetails = person.cause_of_death || deathInformantRaw || person.notes;
             </p>
           )}
           {person.notes && <p class="bio-para">{person.notes}</p>}
+        </div>
+      </section>
+    )}
+
+    <!-- SOURCES -->
+    {sources.length > 0 && (
+      <section class="section section-alt">
+        <div class="container narrow">
+          <p class="eyebrow">Sources</p>
+          <h2>Records consulted</h2>
+          <ul class="sources-list">
+            {sources.map((s) => {
+              const label = String(s.label ?? '').trim();
+              const rawUrl = String(s.url ?? '').trim();
+              // Only web links; anything else (e.g. javascript:) is shown as plain text.
+              const url = /^https?:\/\//i.test(rawUrl) ? rawUrl : '';
+              return (
+                <li>
+                  {url ? (
+                    <a href={url} target="_blank" rel="noopener noreferrer">{label || url}</a>
+                  ) : (
+                    label || rawUrl
+                  )}
+                </li>
+              );
+            })}
+          </ul>
         </div>
       </section>
     )}

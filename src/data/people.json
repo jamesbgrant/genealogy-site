@@ -5564,7 +5564,7 @@
     "place_of_burial": "",
     "occupation": "",
     "death_informant": "",
-    "notes": "Baptised in the Roman Catholic parish of Ballymore Eustace; parents Patrick and Rose Byrne. Probably a sister of Thomas (bapt. 1780) and Christopher (bapt. 1787). Source: Ballymore Eustace baptism register, NLI https://registers.nli.ie/pages/vtls000633341_045",
+    "notes": "Baptised in the Roman Catholic parish of Ballymore Eustace; parents Patrick and Rose Byrne. Probably a sister of Thomas (bapt. 1780) and Christopher (bapt. 1787).",
     "mother": 225,
     "father": "",
     "spouse": "",
@@ -5572,7 +5572,13 @@
     "marriage_date": "",
     "outlier": "",
     "photo": "",
-    "slug": "maria-mary-byrne-223"
+    "slug": "maria-mary-byrne-223",
+    "sources": [
+      {
+        "label": "1784/85 baptism, Ballymore Eustace parish register (NLI)",
+        "url": "https://registers.nli.ie/pages/vtls000633341_045"
+      }
+    ]
   },
   {
     "id": 224,
@@ -5589,7 +5595,7 @@
     "place_of_burial": "",
     "occupation": "",
     "death_informant": "",
-    "notes": "Baptised in the Roman Catholic parish of Ballymore Eustace; parents Patrick and Rose Byrne. Probably a brother of Thomas (bapt. 1780) and Maria (bapt. 1784/85). Source: Ballymore Eustace baptism register, NLI https://registers.nli.ie/pages/vtls000633341_114",
+    "notes": "Baptised in the Roman Catholic parish of Ballymore Eustace; parents Patrick and Rose Byrne. Probably a brother of Thomas (bapt. 1780) and Maria (bapt. 1784/85).",
     "mother": 225,
     "father": "",
     "spouse": "",
@@ -5597,7 +5603,13 @@
     "marriage_date": "",
     "outlier": "",
     "photo": "",
-    "slug": "christopher-byrne-224"
+    "slug": "christopher-byrne-224",
+    "sources": [
+      {
+        "label": "1787 baptism, Ballymore Eustace parish register (NLI)",
+        "url": "https://registers.nli.ie/pages/vtls000633341_114"
+      }
+    ]
   },
   {
     "id": 225,
@@ -5639,7 +5651,7 @@
     "place_of_burial": "",
     "occupation": "",
     "death_informant": "",
-    "notes": "Son of Patrick and Rose (Reilly?) Byrne of Ballintubber, baptised in the Roman Catholic parish of Ballymore Eustace. Possibly the same man as Thomas Byrne, farmer, father of Patrick (b. 1823), who married at Ballymore Eustace in 1864; not yet proven. Source: Ballymore Eustace baptism register, NLI https://registers.nli.ie/pages/vtls000633341_012",
+    "notes": "Son of Patrick and Rose (Reilly?) Byrne of Ballintubber, baptised in the Roman Catholic parish of Ballymore Eustace. Possibly the same man as Thomas Byrne, farmer, father of Patrick (b. 1823), who married at Ballymore Eustace in 1864; not yet proven.",
     "mother": 225,
     "father": "",
     "spouse": "",
@@ -5647,6 +5659,12 @@
     "marriage_date": "",
     "outlier": "",
     "photo": "",
-    "slug": "thomas-byrne-226"
+    "slug": "thomas-byrne-226",
+    "sources": [
+      {
+        "label": "1780 baptism, Ballymore Eustace parish register (NLI)",
+        "url": "https://registers.nli.ie/pages/vtls000633341_012"
+      }
+    ]
   }
 ]
